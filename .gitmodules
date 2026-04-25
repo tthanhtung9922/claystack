@@ -1,0 +1,15 @@
+[submodule "packages/ui"]
+	path = packages/ui
+	url = https://github.com/tthanhtung9922/claystack-ui.git
+[submodule "apps/landing"]
+	path = apps/landing
+	url = https://github.com/tthanhtung9922/claystack-landing.git
+[submodule "apps/tools"]
+	path = apps/tools
+	url = https://github.com/tthanhtung9922/claystack-tools.git
+[submodule "apps/blog"]
+	path = apps/blog
+	url = https://github.com/tthanhtung9922/claystack-blog.git
+[submodule "apps/api"]
+	path = apps/api
+	url = https://github.com/tthanhtung9922/claystack-api.git
