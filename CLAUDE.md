@@ -4,21 +4,53 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Claystack v2
+Claystack — design-first personal web platform. Three public surfaces sharing one design system:
 
-## Development
-
-No build step.
+| Subdomain | App | Repo |
+|-----------|-----|------|
+| `claystack.dev` | Landing / portfolio | `apps/landing` |
+| `tools.claystack.dev` | Utility tools | `apps/tools` |
+| `blog.claystack.dev` | Blog | `apps/blog` |
 
 ## Architecture
 
-Single-file implementation:
+Monorepo — pnpm workspaces + Turborepo — with 5 git submodules:
 
-- `DESIGN.md` — the authoritative design system spec (403 lines). **Read this before making any visual changes.**
+```
+apps/
+  landing/   → claystack-landing   (Next.js 16)
+  tools/     → claystack-tools     (Next.js 16)
+  blog/      → claystack-blog      (Next.js 16)
+  api/       → claystack-api       (.NET 10, Clean Architecture + DDD + CQRS)
+packages/
+  ui/        → claystack-ui        (@claystack/ui — shared design system)
+```
 
-## Design System Rules
+## Development
 
-The full spec lives in `DESIGN.md`.
+```bash
+pnpm install        # install all workspace deps
+pnpm dev            # run all apps in dev mode (Turborepo)
+pnpm build          # build all apps
+pnpm lint           # lint all
+pnpm typecheck      # typecheck all
+```
+
+Working in a single submodule:
+```bash
+cd apps/landing && pnpm dev
+```
+
+Submodule commits must be pushed inside the submodule first, then the root pointer bumped in a separate commit.
+
+## Design System
+
+`DESIGN.md` at root is the authoritative design system spec (403 lines). **Read it before any visual changes.**
+
+Shared implementation lives in `packages/ui` (`@claystack/ui`):
+- Design tokens: Tailwind v4 `@theme` directives mapping DESIGN.md exactly
+- Components: Button (3 variants), Card, StackCard, FiringStatePill, KilnRibbon, StrataDivider, Input, Nav
+- All Next.js apps import `@claystack/ui` as `"workspace:*"` and load `theme.css` via `globals.css`
 
 <!-- code-review-graph MCP tools -->
 ## MCP Tools: code-review-graph
