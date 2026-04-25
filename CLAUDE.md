@@ -49,7 +49,7 @@ Submodule commits must be pushed inside the submodule first, then the root point
 
 Shared implementation lives in `packages/ui` (`@claystack/ui`):
 - Design tokens: Tailwind v4 `@theme` directives mapping DESIGN.md exactly
-- Components: Button (3 variants), Card, StackCard, FiringStatePill, KilnRibbon, StrataDivider, Input, Nav
+- Components: Button (5 variants: primary, secondary, ghost, dark-primary, dark-secondary), Card (3 variants), StackCard, FiringStatePill (4 fills), KilnRibbon, StrataDivider, Input, Nav
 - All Next.js apps import `@claystack/ui` as `"workspace:*"` and load `theme.css` via `globals.css`
 
 <!-- code-review-graph MCP tools -->
