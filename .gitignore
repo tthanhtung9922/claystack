@@ -20,3 +20,6 @@ node_modules/
 
 # Turborepo
 .turbo/
+
+# RTK (Rust Token Killer) internal data
+.rtk/

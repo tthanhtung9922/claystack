@@ -90,3 +90,7 @@ Fall back to Grep/Glob/Read **only** when the graph doesn't cover what you need.
 2. Use `detect_changes` for code review.
 3. Use `get_affected_flows` to understand impact.
 4. Use `query_graph` pattern="tests_for" to check coverage.
+
+<!-- rtk-instructions v2 -->
+<!-- RTK command reference moved to .claude/rules/RTK-COMMANDS.md (loaded every session) -->
+<!-- /rtk-instructions -->
