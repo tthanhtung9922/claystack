@@ -15,5 +15,8 @@ desktop.ini
 *.swp
 *.swo
 
-# Node (if added later)
+# Node
 node_modules/
+
+# Turborepo
+.turbo/
