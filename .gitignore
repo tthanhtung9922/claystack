@@ -1,6 +1,9 @@
 # code-review-graph
 .code-review-graph/
 
+# Playwright MCP
+.playwright-mcp/
+
 # Claude Code local overrides
 .claude/settings.local.json
 
