@@ -45,12 +45,13 @@ Submodule commits must be pushed inside the submodule first, then the root point
 
 ## Design System
 
-`DESIGN.md` at root is the authoritative design system spec (403 lines). **Read it before any visual changes.**
+`DESIGN.md` at root is the authoritative design system spec (394 lines, 9 sections, "Clay Craft × Stack Forward" identity). **Read it before any visual changes.** Signature interaction is **Stack Lift** on hover (`translateY(-3px)` + revealed two-layer swatch offset shadow) — never use a tilted/`rotateZ` hover.
 
 Shared implementation lives in `packages/ui` (`@claystack/ui`):
-- Design tokens: Tailwind v4 `@theme` directives mapping DESIGN.md exactly
-- Components: Button (5 variants: primary, secondary, ghost, dark-primary, dark-secondary), Card (3 variants), StackCard, FiringStatePill (4 fills), KilnRibbon, StrataDivider, Input, Nav
-- All Next.js apps import `@claystack/ui` as `"workspace:*"` and load `theme.css` via `globals.css`
+- Design tokens: Tailwind v4 `@theme` directives in `src/styles/theme.css` (warm-cream canvas + named swatch palette + Be Vietnam Pro/Space Mono type scale + clay/stack-lift shadows).
+- Components: Button (3 variants), Card (4 variants), StackCard, Input, Nav, SpecLabel, SpecBadge, SpecButton, StackStripe, GridWatermark.
+- All Next.js apps import `@claystack/ui` as `"workspace:*"` and load `theme.css` via `globals.css` (with `@source "../../../packages/ui/src"` so Tailwind v4 scans the package).
+- Both fonts load via `next/font/google` — no local files needed. Be Vietnam Pro (`variable: '--font-be-vietnam-pro'`) with `vietnamese` subset for i18n; Space Mono for mono metadata.
 
 <!-- code-review-graph MCP tools -->
 ## MCP Tools: code-review-graph
