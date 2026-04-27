@@ -1,0 +1,27 @@
+# Dependencies & lockfiles
+node_modules
+pnpm-lock.yaml
+
+# Build artifacts
+.next
+.turbo
+out
+dist
+build
+coverage
+*.tsbuildinfo
+
+# Generated / vendored
+next-env.d.ts
+.vercel
+
+# Out of scope (.NET API uses dotnet format / EditorConfig)
+apps/api
+
+# Submodule scratch / Playwright artefacts
+.playwright-mcp
+
+# Editor / OS
+.idea
+.vscode
+.DS_Store
