@@ -27,7 +27,8 @@ jobs:
         env:
           SUBMODULES_PAT: ${{ secrets.SUBMODULES_PAT }}
         run: |
-          git config --global url."https://${SUBMODULES_PAT}@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://x-access-token:${SUBMODULES_PAT}@github.com/".insteadOf "https://github.com/"
+          export GIT_TERMINAL_PROMPT=0
           git submodule update --init --recursive
 
       - name: Setup pnpm
