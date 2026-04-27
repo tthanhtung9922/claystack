@@ -30,6 +30,14 @@ export default tseslint.config(
   ...nextTypescript,
 
   {
+    settings: {
+      next: {
+        rootDir: ["apps/*/"],
+      },
+    },
+  },
+
+  {
     files: ["apps/**/*.{ts,tsx}", "packages/**/*.{ts,tsx}"],
     extends: [...tseslint.configs.recommendedTypeChecked],
     languageOptions: {
