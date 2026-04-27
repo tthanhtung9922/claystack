@@ -18,6 +18,7 @@ The signature interaction — what makes Claystack feel like Claystack — is th
 - **Space Mono elevated** — spec labels, version tags, build numbers, code, all metadata
 - **Stack Lift hover** — `translateY(-3px)` + revealed two-layer swatch shadow stack (no rotation)
 - **Stack Stripe divider** — 3-line horizontal sediment, the brand's wayfinding mark
+- **Wordmark** — Be Vietnam Pro 600 set in `claystack` (no caps), preceded by a 3-line Stack Stripe **logomark** (rising sediment: 12px, 20px, 28px) and underlined by a 2px clay-black baseline rule from `hero` size up. Together the bracket-of-stripes + baseline form a "[" of sediment hugging the wordmark.
 - **Spec Labels** — bracketed mono micro-text for technical voice (`[STACK:01]`, `v1.0.0`)
 - **Grid Watermark** — subtle 8px dot-grid background on technical surfaces
 - Generous border radius: 24px cards, 40px sections, 1584px pills
@@ -221,11 +222,23 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 
 - Sticky top nav on cream background
 - Be Vietnam Pro 15px weight 500 for nav links
-- Claystack logo left-aligned
-- CTA buttons right-aligned with pill radius
+- **Left cluster** (Vercel/Linear/Stripe pattern): Claystack `Wordmark` (logomark + wordmark) followed by primary nav links, gap 40px between mark and first link, gap 24px between links
+- **Right cluster**: optional Spec Label slot (build/version, Space Mono 11px) followed by primary CTA pill
+- Container: `flex justify-between` with the two clusters as the only direct children
 - Border bottom: `1px solid #dad4c8`
-- Optional Spec Label slot in nav for build/version (`v1.0.0`, Space Mono 11px) — far right, before CTA
-- Mobile: hamburger collapse at 767px
+- Mobile: hamburger collapse at 767px; drawer reveals inverted Wordmark, vertical link stack, white-on-clay-black CTA
+
+### Wordmark & Logomark
+
+The Claystack wordmark is **not just typeset text** — it is a paired logomark + wordmark + baseline rule that together form a recognizable "bracket of sediment."
+
+- **Logomark**: a 3-line Stack Stripe glyph rendered as solid clay-black rectangles. Lines rise in width (`12px → 20px → 28px` at 32px viewBox) like sediment building up. This is the standalone mark used at favicon scale, in app icons, and on dark surfaces (where it inverts to cream).
+- **Wordmark**: the literal string `claystack` (no caps, no punctuation) set in Be Vietnam Pro 600. Letter-spacing follows display rules per variant (`-1px` at nav, `-2.2px` at hero, `-7px` at OG).
+- **Baseline rule**: a `2px` clay-black underline appears beneath the wordmark at `hero` and `og` variants — never at `nav`. The rule mirrors the bottom-most stack-stripe line, completing the bracket.
+- **Anchoring**: the logomark sits to the left of the wordmark, baseline-aligned with the typographic baseline (so the bottom stripe and the underline rule sit on the same horizontal line). Gap between mark and wordmark scales with variant (`10px` nav → `56px` og).
+- **Variants**: `nav` (28px tall), `hero` (64px tall, with rule), `og` (220px tall, with rule), `mark-only` (32×32 SVG — favicon, social avatar, anywhere a square is required).
+- **Inverted treatment**: when set on clay-black or any swatch-darker surface, render in cream `#faf9f7` (logomark + wordmark + rule all flip together — never partial).
+- **Do not**: rotate, italicize, recolor letters individually, swap the mono Space Mono for the wordmark, or use the logomark without the cream/clay-black contrast pair.
 
 ### Image Treatment
 
