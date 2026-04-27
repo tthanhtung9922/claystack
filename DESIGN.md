@@ -11,6 +11,7 @@ The typography is anchored by **Be Vietnam Pro**, a warm geometric sans-serif wi
 The signature interaction — what makes Claystack feel like Claystack — is the **Stack Lift**. On hover, a button rises (`translateY(-3px)`) and reveals two offset swatch-colored shadow layers beneath it (`4px 4px 0 swatch-A, 8px 8px 0 swatch-B`). It looks like the button has been picked up off a stack of colored cards. This replaces Clay's tilted hover with a motion that's still physical, still playful, still hard-edged — but now reads as **layered, modern, forward-moving** instead of slanted. Combined with generously rounded containers (24px–40px radius), dashed borders alongside solid ones, a multi-layer shadow with inset highlight, and subtle 8px dot-grid watermarks on technical surfaces, Claystack feels made by people who genuinely enjoy making things — and who happen to ship software.
 
 **Key Characteristics:**
+
 - Warm cream canvas (`#faf9f7`) with oat-toned borders (`#dad4c8`) — artisanal, not clinical
 - Named swatch palette: Matcha, Slushie, Lemon, Ube, Pomegranate, Blueberry, Dragonfruit
 - Be Vietnam Pro — warm geometric, Vietnamese-first glyph coverage
@@ -26,6 +27,7 @@ The signature interaction — what makes Claystack feel like Claystack — is th
 ## 2. Color Palette & Roles
 
 ### Primary
+
 - **Clay Black** (`#000000`): Text, headings, default foreground
 - **Stack Graphite** (`#1f1d1a`): Mono spec text — slight warm undertone, never pure black-on-cream
 - **Pure White** (`#ffffff`): Card backgrounds, button backgrounds, inverse text
@@ -36,42 +38,51 @@ The signature interaction — what makes Claystack feel like Claystack — is th
 Each swatch carries a Stack-semantic role. Use the role to pick a color when status, state, or emphasis is being communicated; ignore the role and pick by aesthetic when it's purely decorative.
 
 **Matcha (Green) — `signal · active · success`**
+
 - **Matcha 300** (`#84e7a5`): light accent
 - **Matcha 600** (`#078a52`): mid green — primary "active" tone
 - **Matcha 800** (`#02492a`): deep green for dark sections
 
 **Slushie (Cyan) — `info · build · live`**
+
 - **Slushie 500** (`#3bd3fd`): bright cyan accent
 - **Slushie 800** (`#0089ad`): deep teal
 
 **Lemon (Gold) — `draft · warning · pending`**
+
 - **Lemon 400** (`#f8cc65`): warm pale gold
 - **Lemon 500** (`#fbbd41`): primary gold
 - **Lemon 700** (`#d08a11`): deep amber
 - **Lemon 800** (`#9d6a09`): dark amber
 
 **Ube (Purple) — `process · compile · transform`**
+
 - **Ube 300** (`#c1b0ff`): soft lavender
 - **Ube 800** (`#43089f`): deep purple
 - **Ube 900** (`#32037d`): darkest purple
 
 **Pomegranate (Pink/Red) — `error · blocker · stop`**
+
 - **Pomegranate 400** (`#fc7981`): warm coral-pink
 
 **Blueberry (Navy Blue) — `archive · stable · shipped`**
+
 - **Blueberry 800** (`#01418d`): deep navy
 
 **Dragonfruit (Magenta) — `accent · highlight · new`**
+
 - **Dragonfruit 300** (`#ff9ec7`): light pink accent
 - **Dragonfruit 600** (`#f0177a`): hot magenta — primary highlight tone
 - **Dragonfruit 800** (`#8a0047`): deep magenta for dark sections
 
 ### Neutral Scale (Warm)
+
 - **Warm Silver** (`#9f9b93`): Secondary/muted text, footer links
 - **Warm Charcoal** (`#55534e`): Tertiary text, dark muted links
 - **Dark Charcoal** (`#333333`): Link text on light backgrounds
 
 ### Surface & Border
+
 - **Oat Border** (`#dad4c8`): Primary border — warm, cream-toned structural lines
 - **Oat Light** (`#eee9df`): Secondary lighter border
 - **Cool Border** (`#e6e8ec`): Cool-toned border for contrast sections
@@ -80,47 +91,51 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - **Grid Dot** (`rgba(85, 83, 78, 0.18)`): 8px dot-grid watermark on technical surfaces
 
 ### Badges & States
+
 - **Badge Blue Bg** (`#f0f8ff`): Blue-tinted badge surface
 - **Badge Blue Text** (`#3859f9`): Vivid blue badge text
 - **Focus Ring** (`rgb(20, 110, 245) solid 2px`): Accessibility focus indicator
 
 ### Shadows
+
 - **Clay Shadow** (`rgba(0,0,0,0.1) 0px 1px 1px, rgba(0,0,0,0.04) 0px -1px 1px inset, rgba(0,0,0,0.05) 0px -0.5px 1px`): Multi-layer with inset highlight — "pressed into clay" signature
 - **Stack Lift** (`4px 4px 0 0 <swatch-A>, 8px 8px 0 0 <swatch-B>, rgba(0,0,0,0.08) 0px 2px 4px`): Hover state — two revealed swatch layers + soft contact shadow. Default swatch pairing: Lemon 400 + Ube 300, but any Matcha/Slushie/Pomegranate combination works for variant buttons.
 
 ## 3. Typography Rules
 
 ### Font Families
+
 - **Primary**: `Be Vietnam Pro` — loaded via `next/font/google`, weights 400/500/600, `subsets: ['latin', 'latin-ext', 'vietnamese']`, `variable: '--font-be-vietnam-pro'`
 - **Monospace**: `Space Mono` — co-equal in role, used for ALL technical metadata (spec labels, versions, builds, code, file paths, timestamps)
 
 ### Hierarchy
 
-| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
-|------|------|------|--------|-------------|----------------|-------|
-| Display Hero | Be Vietnam Pro | 80px (5.00rem) | 600 | 1.00 (tight) | -3.2px | |
-| Display Secondary | Be Vietnam Pro | 60px (3.75rem) | 600 | 1.00 (tight) | -2.4px | |
-| Section Heading | Be Vietnam Pro | 44px (2.75rem) | 600 | 1.10 (tight) | -0.88px to -1.32px | |
-| Card Heading | Be Vietnam Pro | 32px (2.00rem) | 600 | 1.10 (tight) | -0.64px | |
-| Feature Title | Be Vietnam Pro | 20px (1.25rem) | 600 | 1.40 | -0.4px | |
-| Sub-heading | Be Vietnam Pro | 20px (1.25rem) | 500 | 1.50 | -0.16px | |
-| Body Large | Be Vietnam Pro | 20px (1.25rem) | 400 | 1.40 | normal | |
-| Body | Be Vietnam Pro | 18px (1.13rem) | 400 | 1.60 (relaxed) | -0.36px | |
-| Body Standard | Be Vietnam Pro | 16px (1.00rem) | 400 | 1.50 | normal | |
-| Body Medium | Be Vietnam Pro | 16px (1.00rem) | 500 | 1.20–1.40 | -0.16px to -0.32px | |
-| Button | Be Vietnam Pro | 16px (1.00rem) | 500 | 1.50 | -0.16px | |
-| Button Large | Be Vietnam Pro | 24px (1.50rem) | 400 | 1.50 | normal | |
-| Button Small | Be Vietnam Pro | 12.8px (0.80rem) | 500 | 1.50 | -0.128px | |
-| Nav Link | Be Vietnam Pro | 15px (0.94rem) | 500 | 1.60 (relaxed) | normal | |
-| Caption | Be Vietnam Pro | 14px (0.88rem) | 400 | 1.50–1.60 | -0.14px | |
-| Small | Be Vietnam Pro | 12px (0.75rem) | 400 | 1.50 | normal | |
-| Uppercase Label | Be Vietnam Pro | 12px (0.75rem) | 600 | 1.20 (tight) | 1.08px | `text-transform: uppercase` |
-| **Spec Label** | **Space Mono** | **11px (0.69rem)** | **400** | **1.20** | **0.5px** | **`text-transform: uppercase`, e.g. `[STACK:01]`** |
-| **Version Tag** | **Space Mono** | **12px (0.75rem)** | **400** | **1.20** | **0** | **e.g. `v1.0.0`, `BUILD 0426`** |
-| **Code Inline** | **Space Mono** | **0.92em** | **400** | **inherit** | **0** | **Inline code in body text** |
-| Badge | Be Vietnam Pro | 9.6px | 600 | — | — | Pill badges |
+| Role              | Font           | Size               | Weight  | Line Height    | Letter Spacing     | Notes                                              |
+| ----------------- | -------------- | ------------------ | ------- | -------------- | ------------------ | -------------------------------------------------- |
+| Display Hero      | Be Vietnam Pro | 80px (5.00rem)     | 600     | 1.00 (tight)   | -3.2px             |                                                    |
+| Display Secondary | Be Vietnam Pro | 60px (3.75rem)     | 600     | 1.00 (tight)   | -2.4px             |                                                    |
+| Section Heading   | Be Vietnam Pro | 44px (2.75rem)     | 600     | 1.10 (tight)   | -0.88px to -1.32px |                                                    |
+| Card Heading      | Be Vietnam Pro | 32px (2.00rem)     | 600     | 1.10 (tight)   | -0.64px            |                                                    |
+| Feature Title     | Be Vietnam Pro | 20px (1.25rem)     | 600     | 1.40           | -0.4px             |                                                    |
+| Sub-heading       | Be Vietnam Pro | 20px (1.25rem)     | 500     | 1.50           | -0.16px            |                                                    |
+| Body Large        | Be Vietnam Pro | 20px (1.25rem)     | 400     | 1.40           | normal             |                                                    |
+| Body              | Be Vietnam Pro | 18px (1.13rem)     | 400     | 1.60 (relaxed) | -0.36px            |                                                    |
+| Body Standard     | Be Vietnam Pro | 16px (1.00rem)     | 400     | 1.50           | normal             |                                                    |
+| Body Medium       | Be Vietnam Pro | 16px (1.00rem)     | 500     | 1.20–1.40      | -0.16px to -0.32px |                                                    |
+| Button            | Be Vietnam Pro | 16px (1.00rem)     | 500     | 1.50           | -0.16px            |                                                    |
+| Button Large      | Be Vietnam Pro | 24px (1.50rem)     | 400     | 1.50           | normal             |                                                    |
+| Button Small      | Be Vietnam Pro | 12.8px (0.80rem)   | 500     | 1.50           | -0.128px           |                                                    |
+| Nav Link          | Be Vietnam Pro | 15px (0.94rem)     | 500     | 1.60 (relaxed) | normal             |                                                    |
+| Caption           | Be Vietnam Pro | 14px (0.88rem)     | 400     | 1.50–1.60      | -0.14px            |                                                    |
+| Small             | Be Vietnam Pro | 12px (0.75rem)     | 400     | 1.50           | normal             |                                                    |
+| Uppercase Label   | Be Vietnam Pro | 12px (0.75rem)     | 600     | 1.20 (tight)   | 1.08px             | `text-transform: uppercase`                        |
+| **Spec Label**    | **Space Mono** | **11px (0.69rem)** | **400** | **1.20**       | **0.5px**          | **`text-transform: uppercase`, e.g. `[STACK:01]`** |
+| **Version Tag**   | **Space Mono** | **12px (0.75rem)** | **400** | **1.20**       | **0**              | **e.g. `v1.0.0`, `BUILD 0426`**                    |
+| **Code Inline**   | **Space Mono** | **0.92em**         | **400** | **inherit**    | **0**              | **Inline code in body text**                       |
+| Badge             | Be Vietnam Pro | 9.6px              | 600     | —              | —                  | Pill badges                                        |
 
 ### Principles
+
 - **Two-voice typography**: Be Vietnam Pro is warmth, character, narrative. Space Mono is precision, metadata, time. Use them deliberately — Be Vietnam Pro speaks, Mono labels.
 - **Three-weight hierarchy as identity**: Weights 600/500/400 map strictly to headings/UI/body — `font-semibold` for headings, `font-medium` for UI elements, `font-normal` for body. Never deviate.
 - **Aggressive display compression**: -3.2px at 80px, -2.4px at 60px alongside generous body line-height (1.60) creates dramatic contrast.
@@ -132,6 +147,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 ### Buttons
 
 **Primary (Solid with Stack Lift)**
+
 - Background: `#000000`
 - Text: `#ffffff`
 - Padding: 12px 20px
@@ -146,6 +162,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - Focus: `rgb(20, 110, 245) solid 2px` outline
 
 **White Solid (Stack Lift on dark/swatch sections)**
+
 - Background: `#ffffff`
 - Text: `#000000`
 - Padding: 12px 20px
@@ -154,6 +171,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - Use: Primary CTA on swatch-colored sections
 
 **Ghost Outlined**
+
 - Background: transparent
 - Text: `#000000`
 - Padding: 10px 16px
@@ -163,6 +181,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - Use: Secondary actions
 
 **Spec Button (Mono micro-CTA)**
+
 - Background: transparent
 - Text: `#1f1d1a` (Stack Graphite)
 - Font: Space Mono 11px uppercase, letter-spacing 0.5px
@@ -175,12 +194,14 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 ### Cards & Containers
 
 **Standard Card**
+
 - Background: `#ffffff` on cream canvas
 - Border: `1px solid #dad4c8` (warm oat) or `1px dashed #dad4c8` for secondary
 - Radius: 12px (standard), 24px (feature), 40px (section)
 - Shadow: `rgba(0,0,0,0.1) 0px 1px 1px, rgba(0,0,0,0.04) 0px -1px 1px inset, rgba(0,0,0,0.05) 0px -0.5px 1px`
 
-**Stack Card** *(signature)*
+**Stack Card** _(signature)_
+
 - Spec Label at top: Space Mono 11px uppercase, `[STACK:NN]` or `[v1.0.0]`, color Warm Charcoal
 - Be Vietnam Pro 32px weight 600 heading directly below, -0.64px tracking
 - Body 16px Be Vietnam Pro below
@@ -189,6 +210,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - Use: Feature highlights, product modules, anywhere a "module" feel is wanted
 
 ### Inputs & Forms
+
 - Text: `#000000`
 - Border: `1px solid #717989`
 - Radius: 4px
@@ -196,6 +218,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - Helper text: Space Mono 11px, Warm Charcoal — keeps form metadata in the technical voice
 
 ### Navigation
+
 - Sticky top nav on cream background
 - Be Vietnam Pro 15px weight 500 for nav links
 - Claystack logo left-aligned
@@ -205,6 +228,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - Mobile: hamburger collapse at 767px
 
 ### Image Treatment
+
 - Product screenshots in white cards with oat borders
 - Colorful illustrated sections with swatch background colors
 - 8px–24px radius on images
@@ -213,11 +237,13 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 ### Distinctive Components
 
 **Swatch Color Sections**
+
 - Full-width sections with swatch-colored backgrounds (Matcha green, Slushie cyan, Ube purple, Lemon gold)
 - White text on dark swatches, black text on light swatches
 - Each section tells a distinct product story through its color
 
 **Stack Lift (Hover Signature)**
+
 - Replaces Clay's rotateZ tilt — Claystack's defining interaction
 - `translateY(-3px to -4px)` + two revealed swatch-color offset shadows (`4px/4px` and `8px/8px`)
 - Spring easing: `cubic-bezier(0.34, 1.56, 0.64, 1)` with slight overshoot
@@ -225,23 +251,27 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - The shadow direction (down-right) reads as "lifted up off the page" — physical, layered, forward — not slanted
 
 **Spec Label**
+
 - Space Mono 11px uppercase, letter-spacing 0.5px, color Stack Graphite (`#1f1d1a`) or Warm Charcoal
 - Format: `[STACK:01]`, `v1.0.0`, `BUILD 0426`, `[ACTIVE]`
 - Lives above headings, beside cards, in nav corners — the typographic stamp that says "this is technical, this is precise, this has metadata"
 
 **Stack Stripe**
+
 - 3 horizontal lines, 1px each, 4px gap between them
 - Top: Matcha 600, middle: Lemon 500, bottom: Ube 800 (or any 3-swatch combination)
 - Used as a section divider OR the bottom-edge accent of feature cards
 - The "sediment" — visual shorthand for "things are layered here"
 
 **Grid Watermark**
+
 - 8px dot grid, dots `2px × 2px`, color `rgba(85, 83, 78, 0.18)`
 - CSS: `background-image: radial-gradient(circle, rgba(85,83,78,0.18) 1px, transparent 1px); background-size: 8px 8px;`
 - Use sparingly — on hero backgrounds behind content, on technical "spec" surfaces, behind code blocks
 - Never on swatch-colored sections (the warmth conflicts)
 
 **Dashed Border Elements**
+
 - Dashed borders (`1px dashed #dad4c8`) alongside solid borders
 - Used for secondary containers, decorative elements, "draft" or "wip" surfaces
 - Adds a hand-drawn, craft-like quality
@@ -249,10 +279,12 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 ## 5. Layout Principles
 
 ### Spacing System
+
 - Base unit: 8px
 - Scale: 1px, 2px, 4px, 6.4px, 8px, 12px, 12.8px, 16px, 18px, 20px, 24px
 
 ### Grid & Container
+
 - Max content width centered
 - Feature sections alternate between white cards and colorful swatch backgrounds
 - Card grids: 2–3 columns on desktop
@@ -261,12 +293,14 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - **Stack offset layout**: Adjacent feature cards in a grid can be offset vertically by 8–16px to imply layered, stacked depth — never more than 16px (it stops reading as "intentional" and starts reading as "broken")
 
 ### Whitespace Philosophy
+
 - **Warm, generous breathing**: Cream background provides warm rest between content blocks. Spacing is generous but not austere — it feels inviting, like a well-set table.
 - **Color as spatial rhythm**: Alternating swatch sections create rhythm through hue. Each color section is its own "room."
 - **Craft-like density inside cards**: Within cards, content is compact and well-organized, contrasting with generous outer spacing.
 - **Stack-stagger on grids**: Two-column or three-column card grids may stagger by 8–16px to suggest layering — purely optional, but a recognizable Claystack signature when used.
 
 ### Border Radius Scale
+
 - Sharp (4px): Ghost buttons, inputs, spec buttons
 - Standard (8px): Small cards, images, links
 - Badge (11px): Tag badges
@@ -277,16 +311,17 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 
 ## 6. Depth & Elevation
 
-| Level | Treatment | Use |
-|-------|-----------|-----|
-| Flat (Level 0) | No shadow, cream canvas | Page background |
-| Clay Shadow (Level 1) | `rgba(0,0,0,0.1) 0px 1px 1px, rgba(0,0,0,0.04) 0px -1px inset, rgba(0,0,0,0.05) 0px -0.5px` | Cards, buttons — multi-layer with inset highlight |
-| Stack Lift (Level 2) | `4px 4px 0 0 <swatch-A>, 8px 8px 0 0 <swatch-B>, rgba(0,0,0,0.08) 0px 2px 4px` | Hover state — two revealed swatch layers + contact shadow |
-| Focus (Level 3) | `rgb(20, 110, 245) solid 2px` | Keyboard focus ring |
+| Level                 | Treatment                                                                                   | Use                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Flat (Level 0)        | No shadow, cream canvas                                                                     | Page background                                           |
+| Clay Shadow (Level 1) | `rgba(0,0,0,0.1) 0px 1px 1px, rgba(0,0,0,0.04) 0px -1px inset, rgba(0,0,0,0.05) 0px -0.5px` | Cards, buttons — multi-layer with inset highlight         |
+| Stack Lift (Level 2)  | `4px 4px 0 0 <swatch-A>, 8px 8px 0 0 <swatch-B>, rgba(0,0,0,0.08) 0px 2px 4px`              | Hover state — two revealed swatch layers + contact shadow |
+| Focus (Level 3)       | `rgb(20, 110, 245) solid 2px`                                                               | Keyboard focus ring                                       |
 
 **Shadow Philosophy**: Claystack's shadow system is uniquely three-layered at rest: a downward cast (`0px 1px 1px`), an upward inset highlight (`0px -1px 1px inset`), and a subtle edge (`0px -0.5px 1px`). This creates the "pressed into clay" quality where elements feel both raised AND embedded. On hover, the **Stack Lift** swaps inset embedding for revealed depth — two flat swatch-colored offset shadows appear as if peeling back from beneath the element, like a stack of colored cards being separated. The motion is upward and slightly forward (`translateY(-3px)`) — never tilted, never rotated. Stack, not slant.
 
 ### Decorative Depth
+
 - Full-width swatch-colored sections create dramatic depth through color contrast
 - Dashed borders add visual texture alongside solid borders
 - Stack Stripe (3-line sediment) marks transitions between content layers
@@ -296,6 +331,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 ## 7. Do's and Don'ts
 
 ### Do
+
 - Use warm cream (`#faf9f7`) as the page background — the warmth is the identity
 - Use `font-semibold` (600) for headings, `font-medium` (500) for UI, `font-normal` (400) for body — Be Vietnam Pro weight hierarchy is structural
 - Use the named swatch palette for section backgrounds AND as Stack Lift shadow layers
@@ -309,6 +345,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - Optionally stagger card grids by 8–16px to imply Stack depth
 
 ### Don't
+
 - Don't use cool gray backgrounds — the warm cream (`#faf9f7`) is non-negotiable
 - Don't use neutral gray borders (`#ccc`, `#ddd`) — always use the warm oat tones
 - **Don't use the Clay tilted hover** (`rotateZ(-8deg)`, `translateY(-80%)`) — Claystack's signature is Stack Lift, not slant
@@ -323,19 +360,22 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 ## 8. Responsive Behavior
 
 ### Breakpoints
-| Name | Width | Key Changes |
-|------|-------|-------------|
-| Mobile Small | <479px | Single column, tight padding |
-| Mobile | 479–767px | Standard mobile, stacked layout |
-| Tablet | 768–991px | 2-column grids, condensed nav |
-| Desktop | 992px+ | Full layout, 3-column grids, expanded sections |
+
+| Name         | Width     | Key Changes                                    |
+| ------------ | --------- | ---------------------------------------------- |
+| Mobile Small | <479px    | Single column, tight padding                   |
+| Mobile       | 479–767px | Standard mobile, stacked layout                |
+| Tablet       | 768–991px | 2-column grids, condensed nav                  |
+| Desktop      | 992px+    | Full layout, 3-column grids, expanded sections |
 
 ### Touch Targets
+
 - Buttons: minimum 44px tap area (12px padding × 16px text × 12px padding ≈ 44px)
 - Nav links: 15px font with generous spacing
 - Mobile: full-width buttons for easy tapping
 
 ### Collapsing Strategy
+
 - Hero: 80px → 60px → smaller display text
 - Navigation: horizontal → hamburger at 767px; Spec Label slot collapses into menu
 - Feature sections: multi-column → stacked
@@ -344,10 +384,12 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - **Stack offsets disabled below 768px** — staggered grids collapse to flat-aligned stack on mobile (the offset stops reading correctly at narrow widths)
 
 ### Stack Lift on Touch
+
 - Reduce to `translateY(-2px)` + single revealed swatch layer on `:active` for touch devices (`@media (hover: none)`) — preserves the signature feel without the spring delay
 - Skip the cubic-bezier overshoot on touch — feels sluggish on tap
 
 ### Image Behavior
+
 - Product screenshots scale proportionally
 - Colorful section illustrations adapt to viewport width
 - Rounded corners maintained across breakpoints
@@ -355,6 +397,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 ## 9. Agent Prompt Guide
 
 ### Quick Color Reference
+
 - Background: Warm Cream (`#faf9f7`)
 - Text: Clay Black (`#000000`)
 - Mono spec text: Stack Graphite (`#1f1d1a`)
@@ -384,6 +427,7 @@ Each swatch carries a Stack-semantic role. Use the role to pick a color when sta
 - **Grid Watermark surface**: "Add a Grid Watermark to a hero or technical surface: `background-image: radial-gradient(circle, rgba(85,83,78,0.18) 1px, transparent 1px); background-size: 8px 8px;` on a #faf9f7 base. Layer content above with z-index 1. Never apply on swatch-colored backgrounds."
 
 ### Iteration Guide
+
 1. Start with warm cream (#faf9f7) — never cool white. Add Grid Watermark only on technical/spec surfaces.
 2. Swatch colors are for full sections, not small accents — go bold with Matcha, Slushie, Ube. Use the stack-semantic mapping when the color carries meaning (signal/info/process/etc.).
 3. Oat borders (#dad4c8) everywhere — dashed variants for decoration or "draft" surfaces.

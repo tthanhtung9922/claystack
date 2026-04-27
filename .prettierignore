@@ -21,6 +21,9 @@ apps/api
 # Submodule scratch / Playwright artefacts
 .playwright-mcp
 
+# Claude Code rules / skills — owned by user, not source code
+.claude
+
 # Editor / OS
 .idea
 .vscode
