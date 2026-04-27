@@ -6,11 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Claystack — design-first personal web platform. Three public surfaces sharing one design system:
 
-| Subdomain | App | Repo |
-|-----------|-----|------|
-| `claystack.dev` | Landing / portfolio | `apps/landing` |
-| `tools.claystack.dev` | Utility tools | `apps/tools` |
-| `blog.claystack.dev` | Blog | `apps/blog` |
+| Subdomain             | App                 | Repo           |
+| --------------------- | ------------------- | -------------- |
+| `claystack.dev`       | Landing / portfolio | `apps/landing` |
+| `tools.claystack.dev` | Utility tools       | `apps/tools`   |
+| `blog.claystack.dev`  | Blog                | `apps/blog`    |
 
 ## Architecture
 
@@ -37,6 +37,7 @@ pnpm typecheck      # typecheck all
 ```
 
 Working in a single submodule:
+
 ```bash
 cd apps/landing && pnpm dev
 ```
@@ -48,12 +49,14 @@ Submodule commits must be pushed inside the submodule first, then the root point
 `DESIGN.md` at root is the authoritative design system spec (394 lines, 9 sections, "Clay Craft × Stack Forward" identity). **Read it before any visual changes.** Signature interaction is **Stack Lift** on hover (`translateY(-3px)` + revealed two-layer swatch offset shadow) — never use a tilted/`rotateZ` hover.
 
 Shared implementation lives in `packages/ui` (`@claystack/ui`):
+
 - Design tokens: Tailwind v4 `@theme` directives in `src/styles/theme.css` (warm-cream canvas + named swatch palette + Be Vietnam Pro/Space Mono type scale + clay/stack-lift shadows).
 - Components: Button (3 variants), Card (4 variants), StackCard, Input, Nav, SpecLabel, SpecBadge, SpecButton, StackStripe, GridWatermark.
 - All Next.js apps import `@claystack/ui` as `"workspace:*"` and load `theme.css` via `globals.css` (with `@source "../../../packages/ui/src"` so Tailwind v4 scans the package).
 - Both fonts load via `next/font/google` — no local files needed. Be Vietnam Pro (`variable: '--font-be-vietnam-pro'`) with `vietnamese` subset for i18n; Space Mono for mono metadata.
 
 <!-- code-review-graph MCP tools -->
+
 ## MCP Tools: code-review-graph
 
 **IMPORTANT: This project has a knowledge graph. ALWAYS use the
@@ -74,16 +77,16 @@ Fall back to Grep/Glob/Read **only** when the graph doesn't cover what you need.
 
 ### Key Tools
 
-| Tool | Use when |
-|------|----------|
-| `detect_changes` | Reviewing code changes — gives risk-scored analysis |
-| `get_review_context` | Need source snippets for review — token-efficient |
-| `get_impact_radius` | Understanding blast radius of a change |
-| `get_affected_flows` | Finding which execution paths are impacted |
-| `query_graph` | Tracing callers, callees, imports, tests, dependencies |
-| `semantic_search_nodes` | Finding functions/classes by name or keyword |
-| `get_architecture_overview` | Understanding high-level codebase structure |
-| `refactor_tool` | Planning renames, finding dead code |
+| Tool                        | Use when                                               |
+| --------------------------- | ------------------------------------------------------ |
+| `detect_changes`            | Reviewing code changes — gives risk-scored analysis    |
+| `get_review_context`        | Need source snippets for review — token-efficient      |
+| `get_impact_radius`         | Understanding blast radius of a change                 |
+| `get_affected_flows`        | Finding which execution paths are impacted             |
+| `query_graph`               | Tracing callers, callees, imports, tests, dependencies |
+| `semantic_search_nodes`     | Finding functions/classes by name or keyword           |
+| `get_architecture_overview` | Understanding high-level codebase structure            |
+| `refactor_tool`             | Planning renames, finding dead code                    |
 
 ### Workflow
 
@@ -95,3 +98,16 @@ Fall back to Grep/Glob/Read **only** when the graph doesn't cover what you need.
 <!-- rtk-instructions v2 -->
 <!-- RTK command reference moved to .claude/rules/RTK-COMMANDS.md (loaded every session) -->
 <!-- /rtk-instructions -->
+
+## Coding Standards (mandatory)
+
+Production-ready coding rules for every TS/React/Next.js edit live in `.claude/rules/CODING-STANDARDS.md` (auto-loaded each session — non-negotiable). Five sections: TypeScript & Type Safety, Performance & Architecture (RSC default, `next/image`, CLS), Accessibility (WCAG 2.2 AA), Coding Style & Clean Code, Security.
+
+Mechanically enforced by:
+
+- **ESLint flat config** at root (`eslint.config.mjs`) — `next/core-web-vitals`, `next/typescript`, type-aware `recommendedTypeChecked`, `eslint-plugin-better-tailwindcss` (Tailwind v4), strict `react/no-danger`, `@next/next/no-img-element`, `react/jsx-no-target-blank`, `no-console`, `@typescript-eslint/no-explicit-any` and `no-unsafe-*`.
+- **Prettier** + `prettier-plugin-tailwindcss` (`prettier.config.mjs`).
+- **Pre-commit hook** via `simple-git-hooks` + `lint-staged` runs `code-review-graph detect-changes --brief && pnpm lint-staged` — every staged file is formatted + linted before commit.
+- **CI** via `.github/workflows/ci.yml` runs `format:check`, `lint`, `typecheck`, `build` on every PR and push to `main`.
+
+Useful scripts: `pnpm format`, `pnpm format:check`, `pnpm lint`, `pnpm lint:fix`, `pnpm typecheck`, `pnpm build`.
