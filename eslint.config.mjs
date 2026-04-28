@@ -94,7 +94,7 @@ export default tseslint.config(
       "better-tailwindcss/no-duplicate-classes": "error",
       "better-tailwindcss/no-unregistered-classes": [
         "warn",
-        { ignore: ["^font-(display|ui|sans|mono)$", "^stack-lift", "^grid-watermark$"] },
+        { ignore: ["^font-(display|sans|mono)$"] },
       ],
       "better-tailwindcss/enforce-consistent-class-order": "warn",
       "better-tailwindcss/enforce-consistent-line-wrapping": "off",

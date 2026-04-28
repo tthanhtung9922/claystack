@@ -46,14 +46,14 @@ Submodule commits must be pushed inside the submodule first, then the root point
 
 ## Design System
 
-`DESIGN.md` at root is the authoritative design system spec (394 lines, 9 sections, "Clay Craft × Stack Forward" identity). **Read it before any visual changes.** Signature interaction is **Stack Lift** on hover (`translateY(-3px)` + revealed two-layer swatch offset shadow) — never use a tilted/`rotateZ` hover.
+`DESIGN.md` at root is the authoritative design system spec — **Clay** identity (Clay.com claymation flavour). **Read it before any visual changes.** Depth comes from saturated color contrast on cream canvas; the system **does not document hover** and explicitly prohibits adding hover styling beyond what the spec encodes (no Stack Lift, no rotation, no heavy shadow). Visual voltage comes from 3D claymation illustrations + 6 saturated single-color feature cards.
 
 Shared implementation lives in `packages/ui` (`@claystack/ui`):
 
-- Design tokens: Tailwind v4 `@theme` directives in `src/styles/theme.css` (warm-cream canvas + named swatch palette + Be Vietnam Pro/Space Mono type scale + clay/stack-lift shadows).
-- Components: Button (3 variants), Card (4 variants), StackCard, Input, Nav, SpecLabel, SpecBadge, SpecButton, StackStripe, GridWatermark.
+- Design tokens: Tailwind v4 `@theme` directives in `src/styles/theme.css` — cream canvas (`#fffaf0`), near-black primary (`#0a0a0a`), six brand-card colors (pink/teal/lavender/peach/ochre/cream-card) + mint/coral accents, Inter type scale (display-xl/lg/md/sm + title-lg/md/sm + body-md/sm + caption-uppercase + button + nav-link), generous radius (xs/sm/md/lg/xl/pill), 96px section spacing.
+- Components: `Button` (primary/secondary/on-color/text-link), `Card` (feature with 6 tones / product-mockup / testimonial / pricing-tier with featured flag), `Input`, `Nav` (only client component), `Wordmark` (text-only "Clay"), `CaptionLabel`, `BadgePill`, `CategoryTab`, `HeroBand`, `HeroIllustrationCard`, `CtaBand`, `Footer`.
 - All Next.js apps import `@claystack/ui` as `"workspace:*"` and load `theme.css` via `globals.css` (with `@source "../../../packages/ui/src"` so Tailwind v4 scans the package).
-- Both fonts load via `next/font/google` — no local files needed. Be Vietnam Pro (`variable: '--font-be-vietnam-pro'`) with `vietnamese` subset for i18n; Space Mono for mono metadata.
+- Single font: **Inter** via `next/font/google` (subsets `latin`/`latin-ext`/`vietnamese`, weights 400/500/600/700, `variable: '--font-inter-runtime'`). Inter 500 + negative letter-spacing on display sizes is the public-web surrogate for Clay's proprietary Plain Black face.
 
 <!-- code-review-graph MCP tools -->
 
