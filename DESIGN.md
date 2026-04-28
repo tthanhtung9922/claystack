@@ -406,13 +406,13 @@ Clay uses generous whitespace around big rounded display headlines and saturated
 
 ## Elevation & Depth
 
-| Level              | Treatment                                             | Use                          |
-| ------------------ | ----------------------------------------------------- | ---------------------------- |
-| Flat               | No shadow, no border                                  | Body sections, top nav, hero |
-| Soft hairline      | 1px `{colors.hairline}` border                        | Inputs, small content cards  |
-| Saturated card     | Brand pink/teal/lavender/peach/ochre fill — no shadow | Feature cards                |
-| Cream card         | `{colors.surface-card}` background — no shadow        | Testimonial, secondary cards |
-| Subtle drop shadow | Faint shadow at low alpha                             | Hover-elevated states (rare) |
+| Level              | Treatment                                             | Use                                             |
+| ------------------ | ----------------------------------------------------- | ----------------------------------------------- |
+| Flat               | No shadow, no border                                  | Body sections, top nav, hero                    |
+| Soft hairline      | 1px `{colors.hairline}` border                        | Inputs, small content cards                     |
+| Saturated card     | Brand pink/teal/lavender/peach/ochre fill — no shadow | Feature cards                                   |
+| Cream card         | `{colors.surface-card}` background — no shadow        | Testimonial, secondary cards                    |
+| Subtle drop shadow | Faint shadow at low alpha                             | Hover-elevated states — see `lift-sm` primitive |
 
 The system uses no heavy shadows. Depth comes from the saturated color contrast between cream canvas and bright feature cards.
 
@@ -511,7 +511,20 @@ The system uses no heavy shadows. Depth comes from the saturated color contrast 
 - Don't repeat the same brand-color card twice in a row.
 - Don't replace claymation illustrations with flat vector art. The hand-crafted 3D character IS the brand voice.
 - Don't use a dark footer. The cream footer is part of the system's warm-throughout pacing.
-- Don't add hover state styling beyond what the system already encodes.
+- Hover styling is allowed only within the four encoded primitives (`lift-sm`, `nudge-x`, `tilt-1`, `letter-bounce` — see Interaction States below). No translation > 2px, no rotation > 1°, no scale > 1.05×, no two-layer offset shadow stacks, no color-channel inversion. The deprecated Stack Lift treatment stays scrapped.
+
+## Interaction States
+
+Hover is encoded as four primitives. Anything outside this envelope is a regression.
+
+| Primitive       | Effect                                                                 | Use                                                            |
+| --------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `lift-sm`       | `translateY(-2px)` + `{shadow.subtle}` → `{shadow.md}`, 200ms ease-out | Feature cards, surface cards. The card rises a hair on hover.  |
+| `nudge-x`       | Underline grows left → right via `::after` width 0 → 100%, 200ms       | Nav links, inline text-link CTAs.                              |
+| `tilt-1`        | `rotate(1deg)` + `scale(1.02)`, origin bottom, 300ms ease-out          | Hero claymation illustration. Subtle "alive" cue, no parallax. |
+| `letter-bounce` | Per-glyph `translateY(-1px)`, 200ms with 30ms left-to-right stagger    | Wordmark in nav. The lockup pulses LTR on hover.               |
+
+All primitives are gated behind `motion-safe:` — they collapse to no-op for users with `prefers-reduced-motion: reduce`. Buttons may continue to shift background color on hover (already encoded in `{component.button-primary}`). All hover transforms cap at: 2px translation, 1° rotation, 1.05× scale, single-layer shadow.
 
 ## Responsive Behavior
 
@@ -543,7 +556,7 @@ The system uses no heavy shadows. Depth comes from the saturated color contrast 
 2. Pick the right brand-color card for the feature: pink for outbound/sequencer, teal for enterprise/featured, lavender for AI-agent products, peach for general SaaS warmth, ochre for community / experts.
 3. Variants of an existing component (`-active`, `-disabled`) live as separate entries.
 4. Use `{token.refs}` everywhere — never inline hex.
-5. Never document hover.
+5. Document hover only via the four encoded primitives — `lift-sm`, `nudge-x`, `tilt-1`, `letter-bounce` (see Interaction States). Anything beyond the envelope is out of scope.
 6. Display headlines stay Plain Black 500 with negative letter-spacing. Body stays Inter 400.
 7. The cream-throughout palette is a system contract — don't add a dark footer.
 
@@ -552,6 +565,6 @@ The system uses no heavy shadows. Depth comes from the saturated color contrast 
 - Plain Black is licensed to Clay and not available as a public web font; Inter weight 500 with negative letter-spacing is the closest substitute.
 - 3D claymation illustrations are commissioned assets, not system tokens — they're rendered per-page.
 - The mascot characters (named characters that recur across the site) are illustrated assets; their exact lineage and naming are not formalized in tokens.
-- Animation and transition timings (3D illustration parallax on scroll, feature card entrance animations) are not in scope.
+- Entrance animation timings (3D illustration parallax on scroll, feature card entrance animations) are out of scope. Interaction-state hover primitives ARE in scope — see Interaction States.
 - Form validation states beyond `{component.text-input-focused}` are not extracted.
 - The actual Clay product surface (in-app data tables, formula editor, agent builder) shares some tokens with the marketing site but adds many product-specific components that are out of scope.
